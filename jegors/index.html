@@ -1,22 +1,35 @@
     <!DOCTYPE html>  
     <html>  
     <head>  
+    <style>
+        #buttonAnimate {
+            background: #655b00;
+        }
+    </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
     <script>   
     $(document).ready(function(){  
-        $("button").click(function(){  
+        $("#buttonAnimate").click(function(){  
             $("div").animate({  
                 left: '250px',  
                 opacity: '0.5',  
                 height: '150px',  
                 width: '150px'  
             });  
-        });  
+        });
+        $("p").hover(function(){  
+            $("div").hide();  
+        });
+        $("button").click(function(){ 
+            $("div").show();  
+        });
     });  
     </script>   
     </head>  
     <body>  
-    <button>Start Animation</button>  
+    <button id="buttonAnimate">Start Animation</button>
+    <button>Show div</button>
+    <p style="background: #00b3ff;">Hide div</p>
     <div style="background:#125f21;height:100px;width:100px;position:absolute;"></div>  
     </body>  
     </html>  
