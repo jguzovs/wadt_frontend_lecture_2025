@@ -12,11 +12,12 @@
             background-color: #655b00;
             color: white;
         }
-        #animatedDiv {
-            background: #125f21;
-            height: 100px;
-            width: 100px;
+        #animatedCard {
             position: absolute;
+            top: 150px;
+            left: 0;
+            width: 20rem;
+            transition: all 0.3s ease;
         }
         p {
             cursor: pointer;
@@ -27,35 +28,62 @@
     <script>
         $(document).ready(function(){
             $("#buttonAnimate").click(function(){
-                $("#animatedDiv").animate({
+                $("#animatedCard").animate({
                     left: '250px',
                     opacity: '0.5',
-                    height: '150px',
-                    width: '150px'
+                    height: '+=50px',
+                    width: '+=50px'
                 });
             });
+
+            $("#buttonReverse").click(function(){
+                $("#animatedCard").animate({
+                    left: '0px',
+                    opacity: '1',
+                    height: '-=50px',
+                    width: '-=50px'
+                });
+            });
+
             $("p").hover(function(){
-                $("#animatedDiv").hide();
+                $("#animatedCard").hide();
             });
             $("#showDiv").click(function(){
-                $("#animatedDiv").show();
+                $("#animatedCard").show();
             });
         });
     </script>
 </head>
-<body class="bg-light text-center py-5">
+<body class="bg-light">
 
-    <div class="container">
-        <h2 class="mb-4 text-primary">Simple jQuery Animation with Bootstrap</h2>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">My Animation Project (Example of using Bootstrap element, in this case nav bar)</a>
+        </div>
+    </nav>
 
-        <div class="d-flex justify-content-center gap-3 mb-3">
-            <button id="buttonAnimate" class="btn">Start Animation</button>
-            <button id="showDiv" class="btn btn-success">Show Div</button>
+    <div class="container text-center py-5">
+        <h2 class="mb-4 text-primary">Bootstrap Card Animation Example</h2>
+
+        <div class="d-flex justify-content-center gap-3 mb-4">
+            <button id="buttonAnimate" class="btn">Animate Card</button>
+            <button id="buttonReverse" class="btn btn-warning">Reverse Animation</button>
+            <button id="showDiv" class="btn btn-success">Show Card</button>
         </div>
 
-        <p class="p-3 bg-info text-white rounded w-50 mx-auto">Hover here to hide the div</p>
+        <p class="p-3 bg-info text-white rounded w-50 mx-auto">
+            Hover here to hide the card
+        </p>
 
-        <div id="animatedDiv" class="shadow"></div>
+        <div id="animatedCard" class="card shadow mx-auto">
+            <div class="card-header bg-secondary text-white">Bootstrap card element</div>
+            <div class="card-body">
+                <p class="card-text">
+                    This example shows how a <strong>Bootstrap card</strong> can be animated
+                    using <strong>jQuery</strong>, just like a div!  
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
