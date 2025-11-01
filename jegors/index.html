@@ -1,35 +1,61 @@
-    <!DOCTYPE html>  
-    <html>  
-    <head>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Animation Example</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.8/cerulean/bootstrap.min.css" rel="stylesheet">
+
     <style>
         #buttonAnimate {
-            background: #655b00;
+            background-color: #655b00;
+            color: white;
+        }
+        #animatedDiv {
+            background: #125f21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+        p {
+            cursor: pointer;
         }
     </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
-    <script>   
-    $(document).ready(function(){  
-        $("#buttonAnimate").click(function(){  
-            $("div").animate({  
-                left: '250px',  
-                opacity: '0.5',  
-                height: '150px',  
-                width: '150px'  
-            });  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#buttonAnimate").click(function(){
+                $("#animatedDiv").animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px'
+                });
+            });
+            $("p").hover(function(){
+                $("#animatedDiv").hide();
+            });
+            $("#showDiv").click(function(){
+                $("#animatedDiv").show();
+            });
         });
-        $("p").hover(function(){  
-            $("div").hide();  
-        });
-        $("button").click(function(){ 
-            $("div").show();  
-        });
-    });  
-    </script>   
-    </head>  
-    <body>  
-    <button id="buttonAnimate">Start Animation</button>
-    <button>Show div</button>
-    <p style="background: #00b3ff;">Hide div</p>
-    <div style="background:#125f21;height:100px;width:100px;position:absolute;"></div>  
-    </body>  
-    </html>  
+    </script>
+</head>
+<body class="bg-light text-center py-5">
+
+    <div class="container">
+        <h2 class="mb-4 text-primary">Simple jQuery Animation with Bootstrap</h2>
+
+        <div class="d-flex justify-content-center gap-3 mb-3">
+            <button id="buttonAnimate" class="btn">Start Animation</button>
+            <button id="showDiv" class="btn btn-success">Show Div</button>
+        </div>
+
+        <p class="p-3 bg-info text-white rounded w-50 mx-auto">Hover here to hide the div</p>
+
+        <div id="animatedDiv" class="shadow"></div>
+    </div>
+</body>
+</html>
